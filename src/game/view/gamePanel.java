@@ -25,7 +25,10 @@ public class gamePanel extends JPanel
 	private JLabel lblDraws;
 	private JLabel lblLosses;
 	
-	
+	/**
+	 * sets the game panel up, and puts all the needed things inside
+	 * @param baseController
+	 */
 	public gamePanel(gameController baseController)
 	{
 		this.baseController = baseController;
@@ -48,15 +51,16 @@ public class gamePanel extends JPanel
 	}
 
 
-	
+	/**
+	 * sets up the things inside the panel
+	 */
 
 	private void setupPanel()
 	{
 		setBackground(Color.YELLOW);
 		setLayout(baseLayout);
 		answer = new JTextField();
-		baseLayout.putConstraint(SpringLayout.WEST, answer, -21, SpringLayout.WEST, btnRock);
-		baseLayout.putConstraint(SpringLayout.EAST, answer, 379, SpringLayout.WEST, this);
+		
 		answer.setEditable(false);
 		answer.setText("results here");
 		add(btnRock);
@@ -67,7 +71,9 @@ public class gamePanel extends JPanel
 		add(lblDraws);
 		add(lblLosses);
 	}
-	
+	/**
+	 * sets the layouts of all of the buttons, labels and results area
+	 */
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.WEST, btnRock, 31, SpringLayout.WEST, this);
@@ -83,13 +89,24 @@ public class gamePanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, lblDraws, 0, SpringLayout.WEST, btnPaper);
 		baseLayout.putConstraint(SpringLayout.NORTH, lblLosses, 32, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, lblLosses, 0, SpringLayout.WEST, btnScissors);
+		baseLayout.putConstraint(SpringLayout.WEST, answer, -21, SpringLayout.WEST, btnRock);
+		baseLayout.putConstraint(SpringLayout.EAST, answer, 379, SpringLayout.WEST, this);
 	}
+	/**
+	 * the buttons that you push to choose what you play as
+	 */
 	private void setupListeners()
 	{
 		btnRock.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{	
+				/**
+				 * the random choice for the computer to choose
+				 * 0=rock
+				 * 1 = paper
+				 * 2= scissors
+				 */
 				int randomComputerChoice = 0;
 				randomComputerChoice = (int) (Math.random() * 3);
 				if(randomComputerChoice == 0)

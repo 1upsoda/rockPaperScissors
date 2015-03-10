@@ -17,7 +17,9 @@ public class gameFrame extends JFrame
 		
 	}
 	
-
+/**
+ * makes the frame for the game to go into
+ */
 	private void setupFrame()
 
 	{
